@@ -1,18 +1,23 @@
+.grid-container{
+  display: grid;
+  justify-content: center;
+}
+
 table {
   position: center !important;
   border: 3px solid black;
   border-collapse: collapse;
-} 
+}
 
 th, td {
   border: 3px solid black;
   border-collapse: collapse;
   height: 100px;
   width: 100px;
+  text-align: center;
 }
 
 button {
   background: transparent;
   border: none;
-  /* font-size:0;*/
 }

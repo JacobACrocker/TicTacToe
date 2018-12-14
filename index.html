@@ -1,51 +1,43 @@
 <!doctype html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </head>
-  <body>
-    <h1 class="center">
-      Tic-Tac-Toe
-    </h1>
-    <div class="wrapper">
-      <table>
-        <tbody>
-          <tr>
-            <td id="1">
-              <button>click me 1</button>
-            </td>
-            <td id="2">
-              <button>click me 2</button>
-            </td>
-            <td id="3">
-              <button>click me 3</button>
-            </td>
-          </tr>
-          <tr>
-            <td id="4">
-              <button>click me 4</button>
-            </td>
-            <td id="5">
-              <button>click me 5</button>
-            </td>
-            <td id="6">
-              <button>click me 6</button>
-            </td>
-          </tr>
-          <tr>
-            <td id="7">
-              <button>click me 7</button>
-            </td>
-            <td id="8">
-              <button>click me 8</button>
-            </td>
-            <td id="9">
-              <button>click me 9</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <button>Reset</button>
+<head>
+  <link rel="stylesheet" href="./style.css" /
+</head>
+<body>
+  <h1 class="center">
+    Tic-Tac-Toe
+  </h1>
+  <div class="wrapper">
+    <div class="grid-container">
+      <div class="grid-border"></div>
+      <table id="board">
+        <tbody><tr>
+          <td id="1" class="square" onclick="userMove(1)"></td>
+          <td id="2" class="square" onclick="userMove(2)"></td>
+          <td id="3" class="square" onclick="userMove(3)"></td>
+        </tr>
+        <tr>
+          <td id="4" class="square" onclick="userMove(4)"></td>
+          <td id="5" class="square" onclick="userMove(5)"></td>
+          <td id="6" class="square" onclick="userMove(6)"></td>
+        </tr>
+        <tr>
+          <td id="7" class="square" onclick="userMove(7)"></td>
+          <td id="8" class="square" onclick="userMove(8)"></td>
+          <td id="9" class="square" onclick="userMove(9)"></td>
+        </tr>
+        </tbody></table>
+      <div class="grid-border"></div>
     </div>
-  </body>
+    <div class="grid-container">
+      <div class="grid-border"></div>
+      <div><button onclick="resetGame()">Reset</button></div>
+      <div class="grid-border"></div>
+    </div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+  </div>
+  <script src="./app.js"></script>
+</body>
 </html>
