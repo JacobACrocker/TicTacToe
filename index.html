@@ -1,14 +1,17 @@
 <!doctype html>
 <html>
 <head>
-  <link rel="stylesheet" href="./style.css" /
+  <link rel="stylesheet" href="./style.css" />
 </head>
-<body>
+<body onload="randomizePlayer()">
   <h1 class="center">
     Tic-Tac-Toe
   </h1>
   <div class="wrapper">
     <div class="grid-container">
+      <div class="grid-border"></div>
+      <div id="message"></div>
+      <div class="grid-border"></div>
       <div class="grid-border"></div>
       <table id="board">
         <tbody><tr>
