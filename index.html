@@ -3,7 +3,7 @@
 <head>
   <link rel="stylesheet" href="./style.css" />
 </head>
-<body onload="randomizePlayer()">
+<body onload="randomizeStartingPlayer()">
   <h1 class="center">
     Tic-Tac-Toe
   </h1>
@@ -15,19 +15,19 @@
       <div class="grid-border"></div>
       <table id="board">
         <tbody><tr>
-          <td id="1" class="square" onclick="userMove(1)"></td>
-          <td id="2" class="square" onclick="userMove(2)"></td>
-          <td id="3" class="square" onclick="userMove(3)"></td>
+          <td id="1" class="square" onclick="userDidMove('1'), currentPlayer()"></td>
+          <td id="2" class="square" onclick="userDidMove('2'), currentPlayer()"></td>
+          <td id="3" class="square" onclick="userDidMove('3'), currentPlayer()"></td>
         </tr>
         <tr>
-          <td id="4" class="square" onclick="userMove(4)"></td>
-          <td id="5" class="square" onclick="userMove(5)"></td>
-          <td id="6" class="square" onclick="userMove(6)"></td>
+          <td id="4" class="square" onclick="userDidMove('4'), currentPlayer()"></td>
+          <td id="5" class="square" onclick="userDidMove('5'), currentPlayer()"></td>
+          <td id="6" class="square" onclick="userDidMove('6'), currentPlayer()"></td>
         </tr>
         <tr>
-          <td id="7" class="square" onclick="userMove(7)"></td>
-          <td id="8" class="square" onclick="userMove(8)"></td>
-          <td id="9" class="square" onclick="userMove(9)"></td>
+          <td id="7" class="square" onclick="userDidMove('7'), currentPlayer()"></td>
+          <td id="8" class="square" onclick="userDidMove('8'), currentPlayer()"></td>
+          <td id="9" class="square" onclick="userDidMove('9'), currentPlayer()"></td>
         </tr>
         </tbody></table>
       <div class="grid-border"></div>

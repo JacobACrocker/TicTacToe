@@ -1,3 +1,12 @@
+h1 {
+  text-align: center;
+}
+
+#message {
+  text-align: center;
+  margin: 30px;
+}
+
 .grid-container{
   display: grid;
   justify-content: center;

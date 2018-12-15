@@ -1,16 +1,31 @@
-function randomizePlayer(){
-  var number = Math.floor(Math.random() * 10) +1;
+
+//A random number between 1 and 10 will determine which player starts the game.
+//A message is then displayed indicating which player goes first.
+function randomizeStartingPlayer(){
+  var number = Math.floor(Math.random() * 10) + 1;
   if (number % 2 === 0) {
-    document.getElementById("message").innerHTML = "Player X goes first";
-    console.log(number + " is even");
+    player = "X";
+    message("Player " + player + " goes first");
   }else {
-   document.getElementById("message").innerHTML = "Player O goes first";
-   console.log(number + " is odd");
+    player = "O";
+    message("Player " + player + " goes first");
+    }
+  }
+
+function currentPlayer(){
+  if (player === "X"){
+    player = "O";
+  } else{
+    player = "X";
   }
 }
 
-function userMove(id) {
-  document.getElementById(id).innerHTML = "X";
+function message(message){
+  document.getElementById("message").innerHTML = message;
+}
+
+function userDidMove(id) {
+  document.getElementById(id).innerHTML = player;
 }
 
 
@@ -19,5 +34,5 @@ function resetGame() {
   for (var i = 0; i < squares.length; i++) {
     squares[i].innerHTML = "";
   }
-  randomizePlayer();
+  randomizeStartingPlayer();
 }
