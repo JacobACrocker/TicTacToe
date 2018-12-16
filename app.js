@@ -14,9 +14,13 @@ function randomizeStartingPlayer(){
     }
   }
 
-//This function will check to see is a player has already moved into the given cell.
-// if the cell is empty, the player (X or O) will populate the cell and the message will update.
-// If the cell is occupied, the cell will not update and a message will say it's occupied.
+// This function will check to see is a player has already moved into the given cell.
+// If a player has already won, only the message will update.
+// if the cell is empty, the player (X or O) will populate the cell.
+// The message will then update and player turn will switch.
+// If the game is a tie, only the message will update.
+// If the game is not a tie, no one has won, and the cell is occupied, 
+// the cell will not update and a message will say it's occupied.
 function checkOccupiedCell(id){  
   if (gameWinner != null){
     message(player + " has won! Reset the game.");
@@ -31,7 +35,10 @@ function checkOccupiedCell(id){
 }
 
 // The currentPlayer() function checks the global variable "player" value.
-// If the player's value is "X", the function changes it's value to "O" and vice-versa.
+// If that player has won, the gameWinner variable is updated.
+// If the game is a tie, nothing happens.
+// If the game is not a tie, no one has won, and the player's value is "X", 
+// the function changes it's value to "O" and vice-versa.
 // This function then updates the message with whose turn it is.
 function currentPlayer(){
   if (winCheck(player)){
@@ -53,38 +60,34 @@ function message(message){
   document.getElementById("message").innerHTML = message;
 }
 
-// this function updates the player mark inside each cell
+// this function updates the player displayed inside each cell
 function userDidMove(id) {
   if (winCheck(player)){
-    //console.log("userDidMove() ran. id = " + id + ". player = "+ player);
     document.getElementById(id).innerHTML = player;
   }else{
-  console.log("userDidMove() ran. id = " + id + ". player = "+ player);
   document.getElementById(id).innerHTML = player;
   }
 }
 
+// This function looks for a win combination with the paramaters passed to it and returns a win = true or false value.
 function checkSet(cell1, cell2, cell3, winner){
-  //console.log("checkSet() ran. cell1 = " + cell1 + ", cell2 = " + cell2 + ", cell3 = " + cell3);
     var result = false;
   if (getCell(cell1) == winner && getCell(cell2) == winner && getCell(cell3) == winner){
     result = true;
-    //console.log("checkSet() is returning " + result);
     return result;
   }else {
-    //console.log("checkSet() ran. " + cell1 + ", " + cell2 + ", " + cell3 + ", & " + winner + " were passed in.");
     return result;
   }
 }
 
+// This function returns the contents of a cell.
 function getCell(id) {
-  //console.log("getCell() ran. id = " + id + ". contents are " + document.getElementById(id).innerHTML + ".")
-  return document.getElementById(id).innerHTML;
+    return document.getElementById(id).innerHTML;
   }
 
+// This function sends win combinations to checkSet() to test.
 function winCheck(winner){
-  var win = false;  
-  //console.log("winCheck() ran. " + winner + " = winner. win = " + win);
+  var win = false;
   if (// Row 1
       checkSet("1", "2", "3", winner) || 
       // Row 2
@@ -102,17 +105,15 @@ function winCheck(winner){
       // Diagnal right to left
       checkSet("3", "5", "7", winner) 
      ){
-
       win = true;
-      //console.log("winCheck() ran. win is " + win + ".");
       message(player + " wins!");
       return win;
   }else {
-      //console.log("winCheck() ran. " + player + " win is " + win + ".")
       return win;
   }
 }
 
+// This function checks for a tie.
 function tieCheck(){
   var tie = false;
   if (boardIsFull()){
@@ -120,11 +121,11 @@ function tieCheck(){
     tie = true;
     return tie;
   }else{
-    console.log("No draw");
     return tie;
   }
 }
 
+//This function returns true if there are no more empty spaces.
 function boardIsFull(){
   var full = false;
   if (
